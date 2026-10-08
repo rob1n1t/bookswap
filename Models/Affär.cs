@@ -4,19 +4,19 @@ using System.Text;
 
 namespace Models
 {
-    public class Affar
+    public class Affär
     {
-        public Student Kopare { get; private set; }
+        public Student Köpare { get; private set; }
         public Annons Annons { get; private set; }
         public DateTime Reservationsdatum { get; private set; }
-        public AffarsStatus Status { get; private set; }
+        public AffärsStatus Status { get; private set; }
 
-        public Affar(Student kopare, Annons annons, DateTime datum)
+        public Affär(Student kopare, Annons annons, DateTime datum)
         {
-            Kopare = kopare;
+            Köpare = kopare;
             Annons = annons;
             Reservationsdatum = datum;
-            Status = AffarsStatus.Reserverad;
+            Status = AffärsStatus.Reserverad;
         }
     }
 }

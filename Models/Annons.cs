@@ -6,7 +6,7 @@ namespace Models
 {
     public abstract class Annons
     {
-        public Student Saljare { get; private set; }
+        public Student Säljare { get; private set; }
         public Kurs Kurs { get; private set; }
         public string Titel { get; private set; }
         public decimal Pris { get; private set; }
@@ -15,14 +15,14 @@ namespace Models
         public AnnonsStatus Status { get; private set; }
 
         protected Annons(
-            Student saljare,
+            Student säljare,
             Kurs kurs,
             string titel,
             decimal pris,
             AnnonsSkick skick,
             DateTime publiceringsdatum)
         {
-            Saljare = saljare;
+            Säljare = säljare;
             Kurs = kurs;
             Titel = titel;
             Pris = pris;
@@ -31,9 +31,9 @@ namespace Models
             Status = AnnonsStatus.TillSalu;
         }
 
-        public bool KanReserverasAv(Student kopare)
+        public bool KanReserverasAv(Student köpare)
         {
-            return Status == AnnonsStatus.TillSalu && kopare != Saljare;
+            return Status == AnnonsStatus.TillSalu && köpare != Säljare;
         }
 
         public void MarkeraSomReserverad()

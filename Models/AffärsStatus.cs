@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Models
 {
-    public enum AffarsStatus
+    public enum AffärsStatus
     {
         Reserverad,
         Genomford,

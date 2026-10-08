@@ -8,6 +8,6 @@ namespace Models
     {
         TillSalu,
         Reserverad,
-        Sald
+        Såld
     }
 }

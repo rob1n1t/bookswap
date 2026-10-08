@@ -7,21 +7,21 @@ namespace Models
     public class Kompendium : Annons
     {
         public int AntalSidor { get; private set; }
-        public int UtgivningsAr { get; private set; }
+        public int UtgivningsÅr { get; private set; }
 
         public Kompendium(
-            Student saljare,
+            Student säljare,
             Kurs kurs,
             string titel,
             decimal pris,
             AnnonsSkick skick,
             DateTime publiceringsdatum,
             int antalSidor,
-            int utgivningsAr)
-            : base(saljare, kurs, titel, pris, skick, publiceringsdatum)
+            int utgivningsÅr)
+            : base(säljare, kurs, titel, pris, skick, publiceringsdatum)
         {
             AntalSidor = antalSidor;
-            UtgivningsAr = utgivningsAr;
+            UtgivningsÅr = utgivningsÅr;
         }
     }
 }

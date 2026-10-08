@@ -7,7 +7,7 @@ namespace Models
     public class DigitalResurs : Annons
     {
         public string Filformat { get; private set; }
-        public string Leveranssatt { get; private set; }
+        public string Leveranssätt { get; private set; }
 
         public DigitalResurs(
             Student saljare,
@@ -17,11 +17,11 @@ namespace Models
             AnnonsSkick skick,
             DateTime publiceringsdatum,
             string filformat,
-            string leveranssatt)
+            string leveranssätt)
             : base(saljare, kurs, titel, pris, skick, publiceringsdatum)
         {
             Filformat = filformat;
-            Leveranssatt = leveranssatt;
+            Leveranssätt = leveranssätt;
         }
     }
 }
