@@ -11,12 +11,7 @@ namespace Models
         public string Telefonnummer { get; set; }
         public Kontouppgifter Kontouppgifter { get; set; }
 
-        protected Användare(
-            string förnamn,
-            string efternamn,
-            string telefonnummer,
-            Kontouppgifter kontouppgifter)
-
+        protected Användare(string förnamn,string efternamn,string telefonnummer,Kontouppgifter kontouppgifter)
         { 
             Förnamn = förnamn;
             Efternamn = efternamn;
