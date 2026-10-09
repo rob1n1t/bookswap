@@ -8,4 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\ServiceLager\ServiceLager.csproj" />
+  </ItemGroup>
+
 </Project>

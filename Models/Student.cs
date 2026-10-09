@@ -4,13 +4,10 @@ using System.Text;
 
 namespace Models
 {
-    public class Student: Anvandare
+    public class Student: Användare
     {
-        public Student(string fornamn,
-            string efternamn,
-            string telefonnummer,
-            Kontouppgifter kontouppgifter)
-            : base(fornamn, efternamn, telefonnummer, kontouppgifter)
+        public Student(string förnamn,string efternamn,string telefonnummer,Kontouppgifter kontouppgifter)
+            : base(förnamn, efternamn, telefonnummer, kontouppgifter)
         { }
     }
 }

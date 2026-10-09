@@ -4,21 +4,21 @@ using System.Text;
 
 namespace Models
 {
-    public abstract class Anvandare
+    public abstract class Användare
     {
-        public string Fornamn { get; set; }
+        public string Förnamn { get; set; }
         public string Efternamn { get; set; }
         public string Telefonnummer { get; set; }
         public Kontouppgifter Kontouppgifter { get; set; }
 
-        protected Anvandare(
-            string fornamn,
+        protected Användare(
+            string förnamn,
             string efternamn,
             string telefonnummer,
             Kontouppgifter kontouppgifter)
 
         { 
-            Fornamn = fornamn;
+            Förnamn = förnamn;
             Efternamn = efternamn;
             Telefonnummer = telefonnummer;
             Kontouppgifter = kontouppgifter;

@@ -11,9 +11,9 @@ namespace Models
         public DateTime Reservationsdatum { get; private set; }
         public AffärsStatus Status { get; private set; }
 
-        public Affär(Student kopare, Annons annons, DateTime datum)
+        public Affär(Student köpare, Annons annons, DateTime datum)
         {
-            Köpare = kopare;
+            Köpare = köpare;
             Annons = annons;
             Reservationsdatum = datum;
             Status = AffärsStatus.Reserverad;

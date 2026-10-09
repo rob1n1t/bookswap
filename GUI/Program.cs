@@ -1,17 +1,22 @@
+using ServiceLager;
+
 namespace GUI
 {
     internal static class Program
     {
         /// <summary>
-        ///  The main entry point for the application.
+        ///  Programmets startpunkt
         /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            BookSwapRegister register = new BookSwapRegister();
+            register.FyllMedExempelData();
+
             Application.Run(new Form1());
+
         }
     }
 }

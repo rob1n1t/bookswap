@@ -7,31 +7,25 @@ namespace Models
     public class Kontouppgifter
     {
         public string Epostadress { get; }
-        private string Losenord { get; }
+        private string Lösenord { get; }
 
-        public Kontouppgifter(string epostadress, string losenord)
-        {
-            Epostadress = epostadress;
-            Losenord = losenord;
-        }
-
-        public Kontouppgifter(string epostadress, string losenord)
+        public Kontouppgifter(string epostadress, string lösenord)
         {
             if (string.IsNullOrWhiteSpace(epostadress))
             {
                 throw new ArgumentException("E-postadress får inte vara tom eller null.", nameof(epostadress));
             }
-            if (string.IsNullOrWhiteSpace(losenord))
+            if (string.IsNullOrWhiteSpace(lösenord))
             {
-                throw new ArgumentException("Lösenord får inte vara tom eller null.", nameof(losenord));
+                throw new ArgumentException("Lösenord får inte vara tom eller null.", nameof(lösenord));
             }
 
             Epostadress = epostadress.Trim();   // trim ignorerar blanksteg
-            Losenord = losenord;
+            Lösenord = lösenord;
         }
-        public bool VerifieraLosenord(string losenord)
+        public bool VerifieraLösenord(string lösenord)
         {
-            return Losenord == losenord;
+            return Lösenord == lösenord;
         }
 
     }

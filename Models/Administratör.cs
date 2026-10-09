@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Models
 {
-    public class Administrator : Anvandare
+    public class Administratör : Användare
     {
-        public Administrator(
-            string fornamn,
+        public Administratör(
+            string förnamn,
             string efternamn,
             string telefonnummer,
             Kontouppgifter kontouppgifter)
-            : base(fornamn, efternamn, telefonnummer, kontouppgifter)
+            : base(förnamn, efternamn, telefonnummer, kontouppgifter)
         { 
         }
     
