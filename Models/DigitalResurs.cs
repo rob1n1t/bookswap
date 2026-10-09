@@ -10,7 +10,7 @@ namespace Models
         public string Leveranssätt { get; private set; }
 
         public DigitalResurs(
-            Student saljare,
+            Student säljare,
             Kurs kurs,
             string titel,
             decimal pris,
@@ -18,7 +18,7 @@ namespace Models
             DateTime publiceringsdatum,
             string filformat,
             string leveranssätt)
-            : base(saljare, kurs, titel, pris, skick, publiceringsdatum)
+            : base(säljare, kurs, titel, pris, skick, publiceringsdatum)
         {
             Filformat = filformat;
             Leveranssätt = leveranssätt;

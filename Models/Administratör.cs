@@ -6,11 +6,7 @@ namespace Models
 {
     public class Administratör : Användare
     {
-        public Administratör(
-            string förnamn,
-            string efternamn,
-            string telefonnummer,
-            Kontouppgifter kontouppgifter)
+        public Administratör(string förnamn,string efternamn,string telefonnummer,Kontouppgifter kontouppgifter)
             : base(förnamn, efternamn, telefonnummer, kontouppgifter)
         { 
         }
