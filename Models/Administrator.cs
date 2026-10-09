@@ -4,13 +4,16 @@ using System.Text;
 
 namespace Models
 {
-    public class Student: Anvandare
+    public class Administrator : Anvandare
     {
-        public Student(string fornamn,
+        public Administrator(
+            string fornamn,
             string efternamn,
             string telefonnummer,
             Kontouppgifter kontouppgifter)
             : base(fornamn, efternamn, telefonnummer, kontouppgifter)
-        { }
+        { 
+        }
+    
     }
 }
