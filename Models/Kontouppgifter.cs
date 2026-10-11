@@ -20,7 +20,13 @@ namespace Models
                 throw new ArgumentException("Lösenord får inte vara tom eller null.", nameof(lösenord));
             }
 
-            Epostadress = epostadress.Trim();   // trim ignorerar blanksteg
+            string trimmadEpostadress = epostadress.Trim();
+            if (trimmadEpostadress.Any(char.IsWhiteSpace))
+            {
+                throw new ArgumentException("E-postadress får inte innehålla mellanslag.", nameof(epostadress));
+            }
+
+            Epostadress = trimmadEpostadress;
             Lösenord = lösenord;
         }
         public bool VerifieraLösenord(string lösenord)

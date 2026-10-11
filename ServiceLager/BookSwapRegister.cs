@@ -26,7 +26,7 @@ namespace ServiceLager
             Användare.Add(nyAnvändare);
         }
 
-        public Användare HittaAnvändareViaEpost(string epost)
+        public Användare? HittaAnvändareViaEpost(string epost)
         {
             foreach (Användare aktuellAnvändare in Användare)
             {
