@@ -40,5 +40,24 @@ namespace ServiceLager
 
             return nyStudent;
         }
+
+        public Användare? LoggaIn(string epost, string lösenord)
+        {
+            Användare? användare = Register.HittaAnvändareViaEpost(epost);
+            if (användare == null)
+            {
+                return null;
+            }
+
+            bool korrektLösenord = användare.Kontouppgifter.VerifieraLösenord(lösenord);
+
+            if (!korrektLösenord)
+            {
+                return null;
+            }
+
+            return användare;
+        }
+    
     }
 }

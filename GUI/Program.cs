@@ -15,7 +15,7 @@ namespace GUI
             BookSwapRegister register = new BookSwapRegister();
             register.FyllMedExempelData();
 
-            Application.Run(new Form1());
+            Application.Run(new InloggningsForm(register));
 
         }
     }
