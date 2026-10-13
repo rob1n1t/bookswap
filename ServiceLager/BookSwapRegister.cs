@@ -19,8 +19,6 @@ namespace ServiceLager
             Kurser = new List<Kurs>();
         }
 
-        // ---- Nya metoder ----
-
         public void LäggTillAnvändare(Användare nyAnvändare)
         {
             Användare.Add(nyAnvändare);
@@ -44,8 +42,6 @@ namespace ServiceLager
         {
             Kurser.Add(nyKurs);
         }
-
-        // ---- Dina befintliga metoder ----
 
         public void LäggTillAnnons(Annons nyAnnons)
         {

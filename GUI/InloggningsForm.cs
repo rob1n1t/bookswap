@@ -32,9 +32,9 @@ namespace GUI
                 return;
             }
 
-            if (användare is Student)
+            if (användare is Student student)
             {
-                AnnonsForm annonsForm = new AnnonsForm(register, användare);
+                AnnonsForm annonsForm = new AnnonsForm(register, student);
 
                 Hide();
                 annonsForm.ShowDialog();

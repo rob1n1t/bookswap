@@ -13,16 +13,24 @@ namespace GUI
     public partial class AnnonsForm : Form
     {
         private BookSwapRegister register;
-        private Användare inloggadAnvändare;
+        private Student inloggadStudent;
         private AnnonsController annonsController;
         private Annons valdAnnons;
         private bool visarEgnaAnnonser = false;
-        public AnnonsForm(BookSwapRegister register, Användare användare)
+        public AnnonsForm(BookSwapRegister register, Student student)
         {
             InitializeComponent();
             this.register = register;
-            inloggadAnvändare = användare;
-            annonsController = new AnnonsController(register, användare);
+            inloggadStudent = student;
+            annonsController = new AnnonsController(register, student);
+        }
+
+        private void btnNyAnnons_Click(object sender, EventArgs e)
+        {
+            HanteraAnnonsForm hanteraAnnonsFormulär = new HanteraAnnonsForm(register, inloggadStudent);
+            hanteraAnnonsFormulär.ShowDialog();
+            hanteraAnnonsFormulär.Dispose();
+
         }
     }
 }

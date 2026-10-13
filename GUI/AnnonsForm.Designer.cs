@@ -28,18 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnNyAnnons = new Button();
             SuspendLayout();
+            // 
+            // btnNyAnnons
+            // 
+            btnNyAnnons.Location = new Point(12, 370);
+            btnNyAnnons.Name = "btnNyAnnons";
+            btnNyAnnons.Size = new Size(112, 34);
+            btnNyAnnons.TabIndex = 0;
+            btnNyAnnons.Text = "Ny annons";
+            btnNyAnnons.UseVisualStyleBackColor = true;
+            btnNyAnnons.Click += btnNyAnnons_Click;
             // 
             // AnnonsForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnNyAnnons);
             Name = "AnnonsForm";
             Text = "Annonser";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnNyAnnons;
     }
 }
