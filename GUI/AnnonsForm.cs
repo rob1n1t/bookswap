@@ -20,7 +20,7 @@ namespace GUI
         public AnnonsForm(BookSwapRegister register, Användare användare)
         {
             InitializeComponent();
-            Register = register;
+            this.register = register;
             inloggadAnvändare = användare;
             annonsController = new AnnonsController(register, användare);
         }

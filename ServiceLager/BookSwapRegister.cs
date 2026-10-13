@@ -72,6 +72,21 @@ namespace ServiceLager
             Affärer.Add(affär);
         }
 
+        public List<Kurs> HämtaKurser()
+        {
+            return new List<Kurs>(Kurser);
+        }
+
+        public void TaBortKurs(Kurs kurs)
+        {
+            Kurser.Remove(kurs);
+        }
+
+        public List<Annons> HämtaAnnonser()
+        {
+            return new List<Annons>(Annonser);
+        }
+
         #region Exempeldata
         public void FyllMedExempelData()
         {
