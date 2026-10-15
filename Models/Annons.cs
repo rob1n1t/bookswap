@@ -41,6 +41,9 @@ namespace Models
 
         public void MarkeraSomReserverad()
         {
+            if (Status != AnnonsStatus.TillSalu)
+                throw new InvalidOperationException("Annonsen kan inte reserveras.");
+
             Status = AnnonsStatus.Reserverad;
         }
     }

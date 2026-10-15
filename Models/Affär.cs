@@ -18,5 +18,9 @@ namespace Models
             Reservationsdatum = datum;
             Status = AffärsStatus.Reserverad;
         }
+        public override string ToString()
+        {
+            return Annons.Titel + " | " + Reservationsdatum.ToShortDateString() + " | " + Status;
+        }
     }
 }

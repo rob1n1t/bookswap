@@ -16,7 +16,10 @@ namespace ServiceLager
             InloggadAnvändare = inloggadAnvändare;
         }
 
-
+        public List<Annons> HämtaTillgängligaAnnonser()
+        {
+            return Register.HämtaTillgängligaAnnonser();
+        }
         #region Metoder för att publicera annons
         public Kursbok PubliceraKursbok(Student säljare, Kurs kurs, string titel, decimal pris, AnnonsSkick skick, string isbn, string författare, int upplaga)
         {
@@ -47,5 +50,28 @@ namespace ServiceLager
 
         #endregion
 
+        #region Metoder för att reservera annons
+
+        public Affär ReserveraAnnons(Annons annons)
+        {
+            if (InloggadAnvändare is not Student köpare)
+                throw new InvalidOperationException("Endast studenter kan reservera annonser.");
+
+            if (!annons.KanReserverasAv(köpare))
+                throw new InvalidOperationException("Annonsen kan inte reserveras.");
+
+            Affär affär = new Affär(köpare, annons, DateTime.Now);
+            annons.MarkeraSomReserverad();
+            Register.LäggTillAffär(affär);
+
+            return affär;
+        }
+
+        #endregion
+
+        public List<Affär> HämtaMinaAffärer()
+        {
+            return Register.HämtaAffärer((Student)InloggadAnvändare);
+        }
     }
 }

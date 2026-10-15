@@ -68,6 +68,20 @@ namespace ServiceLager
             Affärer.Add(affär);
         }
 
+        public List<Affär> HämtaAffärer(Student student)
+        {
+            List<Affär> studentensAffärer = new List<Affär>();
+
+            foreach (Affär aktuellAffär in Affärer)
+            {
+                if (aktuellAffär.Köpare == student || aktuellAffär.Annons.Säljare == student)
+                {
+                    studentensAffärer.Add(aktuellAffär);
+                }
+            }
+
+            return studentensAffärer;
+        }
         public List<Kurs> HämtaKurser()
         {
             return new List<Kurs>(Kurser);
