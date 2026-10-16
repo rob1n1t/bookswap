@@ -39,7 +39,18 @@ namespace GUI
 
         private void UppdateraAnnonslista()
         {
-            List<Annons> annonser = annonsController.HämtaTillgängligaAnnonser();
+            List<Annons> annonser;
+
+            if (visarEgnaAnnonser)
+            {
+                annonser = annonsController.HämtaEgnaAnnonser();
+                btnReservera.Enabled = false;
+            }
+            else
+            {
+                annonser = annonsController.HämtaTillgängligaAnnonser();
+                btnReservera.Enabled = false;
+            }
 
             lstAnnonser.DataSource = null;
             lstAnnonser.DataSource = annonser;
@@ -50,9 +61,20 @@ namespace GUI
             txtAnnonsdetaljer.Clear();
 
             if (annonser.Count == 0)
-                lblAntalAnnonser.Text = "Det finns inga tillgängliga annonser";
+            {
+                if (visarEgnaAnnonser)
+                {
+                    lblAntalAnnonser.Text = "Du har inga annonser";
+                }
+                else
+                {
+                    lblAntalAnnonser.Text = "Det finns inga tillgängliga annonser";
+                }
+            }
             else
+            {
                 lblAntalAnnonser.Text = "Antal annonser: " + annonser.Count;
+            }
         }
 
         private void btnVisaTillgängliga_Click(object sender, EventArgs e)
@@ -98,6 +120,15 @@ namespace GUI
             }
 
             txtAnnonsdetaljer.Text = detaljer;
+
+            if (!visarEgnaAnnonser && valdAnnons.KanReserverasAv(inloggadStudent))
+            {
+                btnReservera.Enabled = true;
+            }
+            else
+            {
+                btnReservera.Enabled = false;
+            }
         }
 
         private void btnReservera_Click(object sender, EventArgs e)
@@ -130,6 +161,63 @@ namespace GUI
             MinaAffärerForm minaAffärerFormulär = new MinaAffärerForm(register, inloggadStudent);
             minaAffärerFormulär.ShowDialog();
             minaAffärerFormulär.Dispose();
+        }
+
+        private void btnVisaEgna_Click(object sender, EventArgs e)
+        {
+            visarEgnaAnnonser = true;
+            UppdateraAnnonslista();
+        }
+
+        private void btnRedigera_Click(object sender, EventArgs e)
+        {
+            if (valdAnnons == null)
+            {
+                MessageBox.Show("Välj först en annons som ska redigeras.");
+                return;
+            }
+
+            HanteraAnnonsForm hanteraAnnonsForm = new HanteraAnnonsForm(
+                register,
+                inloggadStudent,
+                valdAnnons);
+
+            DialogResult resultat = hanteraAnnonsForm.ShowDialog();
+
+            if (resultat == DialogResult.OK)
+            {
+                visarEgnaAnnonser = true;
+                UppdateraAnnonslista();
+            }
+        }
+
+        private void btnTaBort_Click(object sender, EventArgs e)
+        {
+            if (valdAnnons == null)
+            {
+                MessageBox.Show("Välj först en annons som ska tas bort.");
+                return;
+            }
+
+            DialogResult svar = MessageBox.Show(
+                "Är du säker på att du vill ta bort annonsen?",
+                "Bekräfta borttagning",
+                MessageBoxButtons.YesNo);
+
+            if (svar == DialogResult.No)
+            {
+                return;
+            }
+
+            try
+            {
+                annonsController.TaBortAnnons(valdAnnons);
+                UppdateraAnnonslista();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

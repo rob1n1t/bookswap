@@ -23,5 +23,15 @@ namespace Models
             Filformat = filformat;
             Leveranssätt = leveranssätt;
         }
+
+        public void UppdateraDigitalUppgifter(
+            string filformat,
+            string leveranssätt)
+        {
+           
+
+            Filformat = filformat.Trim();
+            Leveranssätt = leveranssätt.Trim();
+        }
     }
 }

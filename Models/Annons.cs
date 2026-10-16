@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace Models
@@ -46,5 +47,35 @@ namespace Models
 
             Status = AnnonsStatus.Reserverad;
         }
+
+        public void UppdateraAnnonsUppgifter(
+            Kurs kurs, 
+            string titel,
+            decimal pris,
+            AnnonsSkick skick)
+
+        {
+            if (kurs == null)
+            {
+                throw new ArgumentException("En kurs måste väljas.");
+            }
+
+            if (string.IsNullOrWhiteSpace(titel))
+            {
+                throw new ArgumentException("Titel måste anges.");
+            }
+
+            if (pris <= 0)
+            {
+                throw new ArgumentException("Priset måste vara större än 0.");
+            }
+
+            Kurs = kurs;
+            Titel = titel.Trim();
+            Pris = pris;
+            Skick = skick;
+        }
+
+        
     }
 }

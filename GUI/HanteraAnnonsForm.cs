@@ -20,6 +20,7 @@ namespace GUI
         {
             InitializeComponent();
             säljare = student;
+            this.annons = annons;
             annonsController = new AnnonsController(register, student);
             kursController = new KursController(register, student);
 
@@ -29,10 +30,19 @@ namespace GUI
             cmbSkick.DataSource = Enum.GetValues(typeof(AnnonsSkick));
             VisaKurser();
 
-            // Bestämmer att startvalet är "ett steg innan listan börjar", så studenten själv får välja alternativ
+            if (annons != null)
+            {
+                VisaBefintligaUppgifter();
+            }
+            else
+            {
+                // Bestämmer att startvalet är "ett steg innan listan börjar", så studenten själv får välja alternativ
             cmbAnnonsTyp.SelectedIndex = -1;
             cmbKurs.SelectedIndex = -1;
             cmbSkick.SelectedIndex = -1;
+            }
+
+            
         }
 
         private void VisaKurser()
@@ -72,33 +82,130 @@ namespace GUI
             string titel = txtTitel.Text.Trim();
             decimal pris = numPris.Value;
 
-            switch (typ)
+            try
             {
-                case "Kursbok":
-                    annonsController.PubliceraKursbok(
-                    säljare, kurs, titel, pris, skick, txtISBN.Text.Trim(), txtFörfattare.Text.Trim(), (int)numUpplaga.Value);
-                    break;
+                if (annons == null)
+                {
+                    switch (typ)
+                    {
+                        case "Kursbok":
+                            annonsController.PubliceraKursbok(
+                            säljare, kurs, titel, pris, skick, txtISBN.Text.Trim(), txtFörfattare.Text.Trim(), (int)numUpplaga.Value);
+                            break;
 
-                case "Kompendium":
-                    annonsController.PubliceraKompendium(
-                    säljare, kurs, titel, pris, skick, (int)numAntalSidor.Value, (int)numUtgivningsår.Value);
-                    break;
+                        case "Kompendium":
+                            annonsController.PubliceraKompendium(
+                            säljare, kurs, titel, pris, skick, (int)numAntalSidor.Value, (int)numUtgivningsår.Value);
+                            break;
 
-                case "Digitalresurs":
-                    annonsController.PubliceraDigitalresurs(
-                    säljare, kurs, titel, pris, skick, txtFilformat.Text.Trim(), txtLeveranssätt.Text.Trim());
-                    break;
+                        case "Digitalresurs":
+                            annonsController.PubliceraDigitalresurs(
+                            säljare, kurs, titel, pris, skick, txtFilformat.Text.Trim(), txtLeveranssätt.Text.Trim());
+                            break;
 
-                default:
-                    MessageBox.Show("Välj en giltig typ av annons.");
-                    break;
+                        default:
+                            MessageBox.Show("Välj en giltig typ av annons.");
+                            return;
+                    }
+                }
+                else //En gammal annons skickas in för att redigeras
+                {
+                    switch (typ)
+                    {
+                        case "Kursbok":
+                            annonsController.RedigeraKursbok(
+                               (Kursbok)annons,
+                                kurs,
+                                titel,
+                                pris,
+                                skick,
+                                txtISBN.Text.Trim(),
+                                txtFörfattare.Text.Trim(),
+                                (int)numUpplaga.Value);
+                            break;
+
+                        case "Kompendium":
+                            annonsController.RedigeraKompendium(
+                                (Kompendium)annons,
+                                kurs,
+                                titel,
+                                pris,
+                                skick,
+                                (int)numAntalSidor.Value,
+                                (int)numUtgivningsår.Value);
+                            break;
+
+                        case "Digitalresurs":
+                            annonsController.RedigeraDigitalresurs(
+                                (DigitalResurs)annons,
+                                kurs,
+                                titel,
+                                pris,
+                                skick,
+                                txtFilformat.Text.Trim(),
+                                txtLeveranssätt.Text.Trim());
+                            break;
+
+                        default:
+                            MessageBox.Show("Välj en giltig typ av annons.");
+                            return;
+                    }
+                }
+
+                DialogResult = DialogResult.OK;
+                Close();
             }
-            Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         private void btnAvbryt_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void VisaBefintligaUppgifter()
+        {
+            if (annons ==  null)
+            {
+                return;
+            }
+
+            // Gemensamma uppgifter för alla annonser
+            txtTitel.Text = annons.Titel;
+            numPris.Value = annons.Pris;
+
+            // Välj rätt kurs och skick
+            cmbKurs.SelectedItem = annons.Kurs;
+            cmbSkick.SelectedItem = annons.Skick;
+
+            if (annons is Kursbok kursbok)
+            {
+                cmbAnnonsTyp.SelectedItem = "Kursbok";
+
+                txtISBN.Text = kursbok.ISBN;
+                txtFörfattare.Text = kursbok.Författare;
+                numUpplaga.Value = kursbok.Upplaga;
+            }
+            else if (annons is Kompendium kompendium)
+            {
+                cmbAnnonsTyp.SelectedItem = "Kompendium";
+
+                numAntalSidor.Value = kompendium.AntalSidor;
+                numUtgivningsår.Value = kompendium.UtgivningsÅr;
+            }
+            else if (annons is DigitalResurs digitalresurs)
+            {
+                cmbAnnonsTyp.SelectedItem = "Digitalresurs";
+
+                txtFilformat.Text = digitalresurs.Filformat;
+                txtLeveranssätt.Text = digitalresurs.Leveranssätt;
+            }
+
+            cmbAnnonsTyp.Enabled = false;
         }
     }
 }

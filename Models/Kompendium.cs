@@ -23,5 +23,15 @@ namespace Models
             AntalSidor = antalSidor;
             UtgivningsÅr = utgivningsÅr;
         }
+
+        public void UppdateraKompendieUppgifter(
+            int antalSidor,
+            int utgivningsÅr)
+        {
+            
+
+            AntalSidor = antalSidor;
+            UtgivningsÅr = utgivningsÅr;
+        }
     }
 }
