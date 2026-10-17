@@ -55,7 +55,7 @@
             lstAnnonser.Location = new Point(10, 30);
             lstAnnonser.Margin = new Padding(2);
             lstAnnonser.Name = "lstAnnonser";
-            lstAnnonser.Size = new Size(241, 244);
+            lstAnnonser.Size = new Size(315, 244);
             lstAnnonser.TabIndex = 1;
             lstAnnonser.SelectedIndexChanged += lstAnnonser_SelectedIndexChanged;
             // 
@@ -80,7 +80,7 @@
             // 
             // txtAnnonsdetaljer
             // 
-            txtAnnonsdetaljer.Location = new Point(264, 30);
+            txtAnnonsdetaljer.Location = new Point(329, 29);
             txtAnnonsdetaljer.Margin = new Padding(2);
             txtAnnonsdetaljer.Multiline = true;
             txtAnnonsdetaljer.Name = "txtAnnonsdetaljer";
@@ -91,7 +91,7 @@
             // 
             // btnNyAnnons
             // 
-            btnNyAnnons.Location = new Point(10, 296);
+            btnNyAnnons.Location = new Point(10, 359);
             btnNyAnnons.Margin = new Padding(2);
             btnNyAnnons.Name = "btnNyAnnons";
             btnNyAnnons.Size = new Size(90, 27);
@@ -102,7 +102,7 @@
             // 
             // btnReservera
             // 
-            btnReservera.Location = new Point(112, 296);
+            btnReservera.Location = new Point(119, 359);
             btnReservera.Margin = new Padding(2);
             btnReservera.Name = "btnReservera";
             btnReservera.Size = new Size(90, 27);
@@ -113,7 +113,7 @@
             // 
             // btnVisaTillgängliga
             // 
-            btnVisaTillgängliga.Location = new Point(214, 296);
+            btnVisaTillgängliga.Location = new Point(213, 359);
             btnVisaTillgängliga.Margin = new Padding(2);
             btnVisaTillgängliga.Name = "btnVisaTillgängliga";
             btnVisaTillgängliga.Size = new Size(160, 27);
@@ -124,7 +124,7 @@
             // 
             // btnMinaAffärer
             // 
-            btnMinaAffärer.Location = new Point(444, 294);
+            btnMinaAffärer.Location = new Point(512, 357);
             btnMinaAffärer.Name = "btnMinaAffärer";
             btnMinaAffärer.Size = new Size(184, 29);
             btnMinaAffärer.TabIndex = 8;
@@ -136,7 +136,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(640, 360);
+            ClientSize = new Size(729, 410);
             Controls.Add(btnMinaAffärer);
             Controls.Add(btnVisaTillgängliga);
             Controls.Add(btnReservera);
