@@ -24,8 +24,26 @@ namespace GUI
             kursController = new KursController(register, admin);
 
             UppdateraKurslista();
+            UppdateraAnnonsLista();
         }
+        private void UppdateraAnnonsLista()
+        {
+            List<Annons> annonser = annonsController.HämtaAnnonserFörGranskning();
 
+            lstAnnonser.DataSource = null;
+            lstAnnonser.DataSource = annonser;
+            lstAnnonser.DisplayMember = "Titel";
+            lstAnnonser.ClearSelected();
+
+            valdAnnons = null;
+            txtAnnonsdetaljer.Clear();
+            btnTaBortAnnons.Enabled = false;
+
+            if (annonser.Count == 0)
+                lblAntalAnnonser.Text = "Det finns inga annonser";
+            else
+                lblAntalAnnonser.Text = "Antal annonser: " + annonser.Count;
+        }
         private void UppdateraKurslista()
         {
             List<Kurs> kurser = kursController.HämtaKurser();
@@ -116,14 +134,14 @@ namespace GUI
             {
                 MessageBox.Show("Välj först en kurs som ska tas bort.",
                     "Ingen kurs vald",
-                    MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
 
             DialogResult svar = MessageBox.Show(
                 $"Vill du verkligen ta bort kursen '{valdKurs.Namn}'?",
-                "Bekräfta borttagning", 
+                "Bekräfta borttagning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (svar != DialogResult.Yes)
@@ -143,6 +161,84 @@ namespace GUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Kunde inte ta bort kurs",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void lstAnnonser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            valdAnnons = lstAnnonser.SelectedItem as Annons;
+
+            if (valdAnnons == null)
+            {
+                txtAnnonsdetaljer.Clear();
+                btnTaBortAnnons.Enabled = false;
+                return;
+            }
+
+            string detaljer =
+                "Annons-id: " + valdAnnons.AnnonsId + Environment.NewLine +
+                "Titel: " + valdAnnons.Titel + Environment.NewLine +
+                "Pris: " + valdAnnons.Pris + " kr" + Environment.NewLine +
+                "Skick: " + valdAnnons.Skick + Environment.NewLine +
+                "Status: " + valdAnnons.Status + Environment.NewLine +
+                "Publicerad: " + valdAnnons.Publiceringsdatum.ToShortDateString() + Environment.NewLine +
+                "Kurs: " + valdAnnons.Kurs.Kurskod + " " + valdAnnons.Kurs.Namn + Environment.NewLine +
+                "Säljare: " + valdAnnons.Säljare.Förnamn + " " + valdAnnons.Säljare.Efternamn;
+
+            if (valdAnnons is Kursbok bok)
+            {
+                detaljer += Environment.NewLine + "ISBN: " + bok.ISBN +
+                    Environment.NewLine + "Författare: " + bok.Författare +
+                    Environment.NewLine + "Upplaga: " + bok.Upplaga;
+            }
+            else if (valdAnnons is Kompendium kompendium)
+            {
+                detaljer += Environment.NewLine + "Antal sidor: " + kompendium.AntalSidor +
+                    Environment.NewLine + "Utgivningsår: " + kompendium.UtgivningsÅr;
+            }
+            else if (valdAnnons is DigitalResurs digital)
+            {
+                detaljer += Environment.NewLine + "Filformat: " + digital.Filformat +
+                    Environment.NewLine + "Leveranssätt: " + digital.Leveranssätt;
+            }
+
+            txtAnnonsdetaljer.Text = detaljer;
+            btnTaBortAnnons.Enabled = true;
+        }
+
+        private void btnTaBortAnnons_Click(object sender, EventArgs e)
+        {
+            if (valdAnnons == null)
+            {
+                MessageBox.Show("Välj först en annons som ska tas bort.",
+                    "Ingen annons vald",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            DialogResult svar = MessageBox.Show(
+                $"Vill du ta bort annonsen '{valdAnnons.Titel}'?",
+                "Bekräfta borttagning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (svar != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                annonsController.TaBortAnnons(valdAnnons);
+
+                UppdateraAnnonsLista();
+
+                MessageBox.Show("Annonsen har tagits bort.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kunde inte ta bort annonsen",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

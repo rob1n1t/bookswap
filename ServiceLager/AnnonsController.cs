@@ -197,6 +197,16 @@ namespace ServiceLager
 
         public void TaBortAnnons(Annons annons)
         {
+
+            if (!Register.HämtaAnnonser().Contains(annons))
+                throw new InvalidOperationException("Annonsen finns inte i registret.");
+
+            if (InloggadAnvändare is Administratör)
+            {
+                Register.TaBortAnnons(annons);
+                return;
+            }
+
             Student student = (Student)InloggadAnvändare;
 
             if (annons.Säljare != student)
@@ -238,6 +248,14 @@ namespace ServiceLager
         public List<Affär> HämtaMinaAffärer()
         {
             return Register.HämtaAffärer((Student)InloggadAnvändare);
+        }
+
+        public List<Annons> HämtaAnnonserFörGranskning()
+        {
+            if (InloggadAnvändare is not Administratör)
+                throw new InvalidOperationException("Endast administratörer kan granska annonser.");
+
+            return Register.HämtaAnnonser();
         }
     }
 }

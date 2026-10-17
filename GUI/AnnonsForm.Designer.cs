@@ -45,59 +45,59 @@
             // lblAnnonser
             // 
             lblAnnonser.AutoSize = true;
-            lblAnnonser.Location = new Point(12, 9);
+            lblAnnonser.Location = new Point(10, 7);
             lblAnnonser.Margin = new Padding(2, 0, 2, 0);
             lblAnnonser.Name = "lblAnnonser";
-            lblAnnonser.Size = new Size(88, 25);
+            lblAnnonser.Size = new Size(71, 20);
             lblAnnonser.TabIndex = 0;
             lblAnnonser.Text = "Annonser";
             // 
             // lstAnnonser
             // 
             lstAnnonser.FormattingEnabled = true;
-            lstAnnonser.Location = new Point(12, 38);
+            lstAnnonser.Location = new Point(11, 30);
             lstAnnonser.Margin = new Padding(2);
             lstAnnonser.Name = "lstAnnonser";
-            lstAnnonser.Size = new Size(300, 304);
+            lstAnnonser.Size = new Size(384, 244);
             lstAnnonser.TabIndex = 1;
             lstAnnonser.SelectedIndexChanged += lstAnnonser_SelectedIndexChanged;
             // 
             // lblAntalAnnonser
             // 
             lblAntalAnnonser.AutoSize = true;
-            lblAntalAnnonser.Location = new Point(12, 344);
+            lblAntalAnnonser.Location = new Point(11, 351);
             lblAntalAnnonser.Margin = new Padding(2, 0, 2, 0);
             lblAntalAnnonser.Name = "lblAntalAnnonser";
-            lblAntalAnnonser.Size = new Size(0, 25);
+            lblAntalAnnonser.Size = new Size(0, 20);
             lblAntalAnnonser.TabIndex = 2;
             // 
             // lblDetaljer
             // 
             lblDetaljer.AutoSize = true;
-            lblDetaljer.Location = new Point(330, 9);
+            lblDetaljer.Location = new Point(425, 7);
             lblDetaljer.Margin = new Padding(2, 0, 2, 0);
             lblDetaljer.Name = "lblDetaljer";
-            lblDetaljer.Size = new Size(131, 25);
+            lblDetaljer.Size = new Size(109, 20);
             lblDetaljer.TabIndex = 3;
             lblDetaljer.Text = "Annonsdetaljer";
             // 
             // txtAnnonsdetaljer
             // 
-            txtAnnonsdetaljer.Location = new Point(330, 38);
+            txtAnnonsdetaljer.Location = new Point(425, 29);
             txtAnnonsdetaljer.Margin = new Padding(2);
             txtAnnonsdetaljer.Multiline = true;
             txtAnnonsdetaljer.Name = "txtAnnonsdetaljer";
             txtAnnonsdetaljer.ReadOnly = true;
             txtAnnonsdetaljer.ScrollBars = ScrollBars.Vertical;
-            txtAnnonsdetaljer.Size = new Size(458, 304);
+            txtAnnonsdetaljer.Size = new Size(367, 244);
             txtAnnonsdetaljer.TabIndex = 4;
             // 
             // btnNyAnnons
             // 
-            btnNyAnnons.Location = new Point(12, 370);
+            btnNyAnnons.Location = new Point(10, 305);
             btnNyAnnons.Margin = new Padding(2);
             btnNyAnnons.Name = "btnNyAnnons";
-            btnNyAnnons.Size = new Size(112, 34);
+            btnNyAnnons.Size = new Size(90, 27);
             btnNyAnnons.TabIndex = 5;
             btnNyAnnons.Text = "Ny annons";
             btnNyAnnons.UseVisualStyleBackColor = true;
@@ -105,10 +105,10 @@
             // 
             // btnReservera
             // 
-            btnReservera.Location = new Point(140, 370);
+            btnReservera.Location = new Point(120, 305);
             btnReservera.Margin = new Padding(2);
             btnReservera.Name = "btnReservera";
-            btnReservera.Size = new Size(112, 34);
+            btnReservera.Size = new Size(90, 27);
             btnReservera.TabIndex = 6;
             btnReservera.Text = "Reservera";
             btnReservera.UseVisualStyleBackColor = true;
@@ -116,10 +116,10 @@
             // 
             // btnVisaTillgängliga
             // 
-            btnVisaTillgängliga.Location = new Point(268, 370);
+            btnVisaTillgängliga.Location = new Point(230, 305);
             btnVisaTillgängliga.Margin = new Padding(2);
             btnVisaTillgängliga.Name = "btnVisaTillgängliga";
-            btnVisaTillgängliga.Size = new Size(200, 34);
+            btnVisaTillgängliga.Size = new Size(160, 27);
             btnVisaTillgängliga.TabIndex = 7;
             btnVisaTillgängliga.Text = "Visa tillgängliga annonser";
             btnVisaTillgängliga.UseVisualStyleBackColor = true;
@@ -127,10 +127,9 @@
             // 
             // btnMinaAffärer
             // 
-            btnMinaAffärer.Location = new Point(555, 368);
-            btnMinaAffärer.Margin = new Padding(4);
+            btnMinaAffärer.Location = new Point(608, 303);
             btnMinaAffärer.Name = "btnMinaAffärer";
-            btnMinaAffärer.Size = new Size(230, 36);
+            btnMinaAffärer.Size = new Size(184, 29);
             btnMinaAffärer.TabIndex = 8;
             btnMinaAffärer.Text = "Mina reservationer";
             btnMinaAffärer.UseVisualStyleBackColor = true;
@@ -138,19 +137,21 @@
             // 
             // btnVisaEgna
             // 
-            btnVisaEgna.Location = new Point(83, 437);
+            btnVisaEgna.Location = new Point(608, 351);
+            btnVisaEgna.Margin = new Padding(2, 2, 2, 2);
             btnVisaEgna.Name = "btnVisaEgna";
-            btnVisaEgna.Size = new Size(112, 34);
+            btnVisaEgna.Size = new Size(184, 27);
             btnVisaEgna.TabIndex = 9;
-            btnVisaEgna.Text = "Visa egna";
+            btnVisaEgna.Text = "Visa egna annonser";
             btnVisaEgna.UseVisualStyleBackColor = true;
             btnVisaEgna.Click += btnVisaEgna_Click;
             // 
             // btnRedigera
             // 
-            btnRedigera.Location = new Point(219, 437);
+            btnRedigera.Location = new Point(608, 399);
+            btnRedigera.Margin = new Padding(2, 2, 2, 2);
             btnRedigera.Name = "btnRedigera";
-            btnRedigera.Size = new Size(112, 34);
+            btnRedigera.Size = new Size(90, 27);
             btnRedigera.TabIndex = 10;
             btnRedigera.Text = "Redigera";
             btnRedigera.UseVisualStyleBackColor = true;
@@ -158,9 +159,10 @@
             // 
             // btnTaBort
             // 
-            btnTaBort.Location = new Point(356, 437);
+            btnTaBort.Location = new Point(702, 399);
+            btnTaBort.Margin = new Padding(2, 2, 2, 2);
             btnTaBort.Name = "btnTaBort";
-            btnTaBort.Size = new Size(112, 34);
+            btnTaBort.Size = new Size(90, 27);
             btnTaBort.TabIndex = 11;
             btnTaBort.Text = "Ta Bort";
             btnTaBort.UseVisualStyleBackColor = true;
@@ -168,9 +170,9 @@
             // 
             // AnnonsForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(807, 498);
+            ClientSize = new Size(816, 451);
             Controls.Add(btnTaBort);
             Controls.Add(btnRedigera);
             Controls.Add(btnVisaEgna);
