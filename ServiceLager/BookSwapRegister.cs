@@ -97,6 +97,26 @@ namespace ServiceLager
             return new List<Annons>(Annonser);
         }
 
+        public List<Annons> HämtaEgnaAnnonser(Student säljare)
+        {
+            List<Annons> egnaAnnonser = new List<Annons>();
+
+            foreach (Annons annons in Annonser)
+            {
+                if (annons.Säljare == säljare)
+                {
+                    egnaAnnonser.Add(annons);
+                }
+            }
+
+            return egnaAnnonser; 
+        }
+
+        public void TaBortAnnons(Annons annons)
+        {
+            Annonser.Remove(annons);
+        }
+
         #region Exempeldata
         public void FyllMedExempelData()
         {

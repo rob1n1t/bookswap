@@ -26,5 +26,15 @@ namespace Models
             Författare = författare;
             Upplaga = upplaga;
         }
+
+        public void UppdateraBokUppgifter(
+            string isbn, 
+            string författare, 
+            int upplaga)
+        {
+            ISBN = isbn.Trim();
+            Författare = författare.Trim();
+            Upplaga = upplaga; 
+        }
     }
 }
