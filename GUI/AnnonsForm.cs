@@ -28,6 +28,14 @@ namespace GUI
             UppdateraAnnonslista();
         }
 
+        private void tabAnnonsVy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabAnnonsVy.SelectedTab == tabMinaReservationer)
+            {
+                UppdateraAffärslista();
+            }
+        }
+
         private void btnNyAnnons_Click(object sender, EventArgs e)
         {
             HanteraAnnonsForm hanteraAnnonsFormulär = new HanteraAnnonsForm(register, inloggadStudent);
@@ -35,7 +43,6 @@ namespace GUI
             hanteraAnnonsFormulär.Dispose();
 
         }
-
 
         private void UppdateraAnnonslista()
         {
@@ -155,14 +162,6 @@ namespace GUI
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-        private void btnMinaAffärer_Click(object sender, EventArgs e)
-        {
-            MinaAffärerForm minaAffärerFormulär = new MinaAffärerForm(register, inloggadStudent);
-            minaAffärerFormulär.ShowDialog();
-            minaAffärerFormulär.Dispose();
-        }
-
         private void btnVisaEgna_Click(object sender, EventArgs e)
         {
             visarEgnaAnnonser = true;
@@ -218,6 +217,20 @@ namespace GUI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void UppdateraAffärslista()
+        {
+            List<Affär> affärer = annonsController.HämtaMinaAffärer();
+
+            lstAffärer.DataSource = null;
+            lstAffärer.DataSource = affärer;
+            lstAffärer.ClearSelected();
+
+            if (affärer.Count == 0)
+                lblAntalAffärer.Text = "Du har inga reservationer";
+            else
+                lblAntalAffärer.Text = "Antal: " + affärer.Count;
         }
     }
 }

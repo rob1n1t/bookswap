@@ -20,7 +20,7 @@ namespace Models
         }
         public override string ToString()
         {
-            return Annons.Titel + " | " + Reservationsdatum.ToShortDateString() + " | " + Status;
+            return Annons.Titel + " | " + Reservationsdatum.ToShortDateString() + " | " + Status + " | " + Annons.Säljare.Förnamn + " " +  Annons.Säljare.Efternamn + " | " + Annons.Pris + "kr";
         }
     }
 }
