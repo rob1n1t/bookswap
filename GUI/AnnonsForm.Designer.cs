@@ -96,7 +96,6 @@
             txtAnnonsdetaljer.Multiline = true;
             txtAnnonsdetaljer.Name = "txtAnnonsdetaljer";
             txtAnnonsdetaljer.ReadOnly = true;
-            txtAnnonsdetaljer.ScrollBars = ScrollBars.Vertical;
             txtAnnonsdetaljer.Size = new Size(460, 354);
             txtAnnonsdetaljer.TabIndex = 4;
             // 
@@ -175,7 +174,6 @@
             tabAnnonsVy.SelectedIndex = 0;
             tabAnnonsVy.Size = new Size(1018, 562);
             tabAnnonsVy.TabIndex = 12;
-            tabAnnonsVy.SelectedIndexChanged += tabAnnonsVy_SelectedIndexChanged;
             // 
             // tabAnnonsHem
             // 

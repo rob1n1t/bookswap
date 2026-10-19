@@ -145,14 +145,16 @@ namespace ServiceLager
             // Skapa hårdkodade kurser
             Kurs gProgCSharp = new Kurs("NGC011", "Grundläggande programmering med C#");
             Kurs objekt1 = new Kurs("C10B1B", "Objektorienterad systemutveckling 1");
+            Kurs samdig = new Kurs("SAMDIG", "Samhällets digitalisering");
             LäggTillKurs(gProgCSharp);
             LäggTillKurs(objekt1);
+            LäggTillKurs(samdig);
 
             // Skapar 4 annonser
             Kursbok kursbok1 = new Kursbok(
              bertil,
              objekt1,
-             "Object-oriented analysis and design with applications",
+             "Object oriented AAD",
              545m,
              AnnonsSkick.BraSkick,
              DateTime.Today,

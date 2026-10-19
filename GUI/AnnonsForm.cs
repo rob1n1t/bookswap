@@ -26,14 +26,7 @@ namespace GUI
             inloggadStudent = student;
             annonsController = new AnnonsController(register, student);
             UppdateraAnnonslista();
-        }
-
-        private void tabAnnonsVy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabAnnonsVy.SelectedTab == tabMinaReservationer)
-            {
-                UppdateraAffärslista();
-            }
+            UppdateraAffärslista();
         }
 
         private void btnNyAnnons_Click(object sender, EventArgs e)
@@ -155,6 +148,7 @@ namespace GUI
                     "Reservation klar", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 UppdateraAnnonslista();
+                UppdateraAffärslista();
             }
             catch (InvalidOperationException ex)
             {

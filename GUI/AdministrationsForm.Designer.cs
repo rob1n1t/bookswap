@@ -56,7 +56,7 @@
             tabAdministration.Controls.Add(tabKurser);
             tabAdministration.Controls.Add(tabAnnonser);
             tabAdministration.Location = new Point(-1, 8);
-            tabAdministration.Margin = new Padding(4, 4, 4, 4);
+            tabAdministration.Margin = new Padding(4);
             tabAdministration.Name = "tabAdministration";
             tabAdministration.SelectedIndex = 0;
             tabAdministration.Size = new Size(1213, 675);
@@ -74,9 +74,9 @@
             tabKurser.Controls.Add(lblKursnamn);
             tabKurser.Controls.Add(txtKursnamn);
             tabKurser.Location = new Point(4, 34);
-            tabKurser.Margin = new Padding(4, 4, 4, 4);
+            tabKurser.Margin = new Padding(4);
             tabKurser.Name = "tabKurser";
-            tabKurser.Padding = new Padding(4, 4, 4, 4);
+            tabKurser.Padding = new Padding(4);
             tabKurser.Size = new Size(1205, 637);
             tabKurser.TabIndex = 0;
             tabKurser.Text = "Kurser";
@@ -168,7 +168,7 @@
             txtKursnamn.Location = new Point(721, 251);
             txtKursnamn.Margin = new Padding(2);
             txtKursnamn.Name = "txtKursnamn";
-            txtKursnamn.Size = new Size(213, 31);
+            txtKursnamn.Size = new Size(412, 31);
             txtKursnamn.TabIndex = 13;
             // 
             // tabAnnonser
@@ -180,9 +180,9 @@
             tabAnnonser.Controls.Add(lstAnnonser);
             tabAnnonser.Controls.Add(label1);
             tabAnnonser.Location = new Point(4, 34);
-            tabAnnonser.Margin = new Padding(4, 4, 4, 4);
+            tabAnnonser.Margin = new Padding(4);
             tabAnnonser.Name = "tabAnnonser";
-            tabAnnonser.Padding = new Padding(4, 4, 4, 4);
+            tabAnnonser.Padding = new Padding(4);
             tabAnnonser.Size = new Size(1205, 637);
             tabAnnonser.TabIndex = 1;
             tabAnnonser.Text = "Annonser";
@@ -200,7 +200,7 @@
             // btnTaBortAnnons
             // 
             btnTaBortAnnons.Location = new Point(89, 489);
-            btnTaBortAnnons.Margin = new Padding(4, 4, 4, 4);
+            btnTaBortAnnons.Margin = new Padding(4);
             btnTaBortAnnons.Name = "btnTaBortAnnons";
             btnTaBortAnnons.Size = new Size(118, 36);
             btnTaBortAnnons.TabIndex = 4;
@@ -211,11 +211,10 @@
             // txtAnnonsdetaljer
             // 
             txtAnnonsdetaljer.Location = new Point(684, 67);
-            txtAnnonsdetaljer.Margin = new Padding(4, 4, 4, 4);
+            txtAnnonsdetaljer.Margin = new Padding(4);
             txtAnnonsdetaljer.Multiline = true;
             txtAnnonsdetaljer.Name = "txtAnnonsdetaljer";
             txtAnnonsdetaljer.ReadOnly = true;
-            txtAnnonsdetaljer.ScrollBars = ScrollBars.Vertical;
             txtAnnonsdetaljer.Size = new Size(476, 389);
             txtAnnonsdetaljer.TabIndex = 3;
             // 
@@ -233,7 +232,7 @@
             // 
             lstAnnonser.FormattingEnabled = true;
             lstAnnonser.Location = new Point(74, 66);
-            lstAnnonser.Margin = new Padding(4, 4, 4, 4);
+            lstAnnonser.Margin = new Padding(4);
             lstAnnonser.Name = "lstAnnonser";
             lstAnnonser.Size = new Size(553, 396);
             lstAnnonser.TabIndex = 1;

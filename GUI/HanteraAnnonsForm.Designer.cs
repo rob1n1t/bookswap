@@ -82,7 +82,7 @@
             cmbKurs.FormattingEnabled = true;
             cmbKurs.Location = new Point(144, 81);
             cmbKurs.Name = "cmbKurs";
-            cmbKurs.Size = new Size(182, 33);
+            cmbKurs.Size = new Size(329, 33);
             cmbKurs.TabIndex = 1;
             // 
             // txtTitel
