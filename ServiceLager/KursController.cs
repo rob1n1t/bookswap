@@ -23,12 +23,6 @@ namespace ServiceLager
 
         public Kurs LäggTillKurs(string kurskod, string namn)
         {
-            if (inloggadAnvändare is not Administratör)
-            {
-                throw new UnauthorizedAccessException(
-                    "Endast administratörer får lägga till kurser.");
-            }
-
             bool kurskodFinns = register.HämtaKurser().Any(kurs =>
                 kurs.Kurskod.Equals(kurskod.Trim(),
                     StringComparison.OrdinalIgnoreCase));
@@ -48,11 +42,6 @@ namespace ServiceLager
 
         public void RedigeraKurs(Kurs kurs,string kurskod,string namn)
         {
-            if (inloggadAnvändare is not Administratör)
-            {
-                throw new UnauthorizedAccessException(
-                    "Endast administratörer får redigera kurser.");
-            }
 
             if (kurs == null)
             {
@@ -86,11 +75,6 @@ namespace ServiceLager
 
         public void TaBortKurs(Kurs kurs)
         {
-            if (inloggadAnvändare is not Administratör)
-            {
-                throw new UnauthorizedAccessException(
-                    "Endast administratörer får ta bort kurser.");
-            }
 
             if (kurs == null)
             {

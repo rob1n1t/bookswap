@@ -53,8 +53,6 @@ namespace ServiceLager
         #endregion
 
         #region Metoder för att redigera annons
-        // Lägg alla metoder för att redigera i den här region, använd pilarna för att collapsa
-        // när alla metoder är implementerade
 
         public void RedigeraKursbok(
             Kursbok annons,
@@ -198,9 +196,6 @@ namespace ServiceLager
         public void TaBortAnnons(Annons annons)
         {
 
-            if (!Register.HämtaAnnonser().Contains(annons))
-                throw new InvalidOperationException("Annonsen finns inte i registret.");
-
             if (InloggadAnvändare is Administratör)
             {
                 Register.TaBortAnnons(annons);
@@ -230,8 +225,7 @@ namespace ServiceLager
 
         public Affär ReserveraAnnons(Annons annons)
         {
-            if (InloggadAnvändare is not Student köpare)
-                throw new InvalidOperationException("Endast studenter kan reservera annonser.");
+            Student köpare = (Student)InloggadAnvändare;
 
             if (!annons.KanReserverasAv(köpare))
                 throw new InvalidOperationException("Annonsen kan inte reserveras.");
@@ -252,9 +246,6 @@ namespace ServiceLager
 
         public List<Annons> HämtaAnnonserFörGranskning()
         {
-            if (InloggadAnvändare is not Administratör)
-                throw new InvalidOperationException("Endast administratörer kan granska annonser.");
-
             return Register.HämtaAnnonser();
         }
     }

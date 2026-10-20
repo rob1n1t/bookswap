@@ -206,6 +206,7 @@ namespace GUI
             {
                 annonsController.TaBortAnnons(valdAnnons);
                 UppdateraAnnonslista();
+                MessageBox.Show("Annonsen har tagits bort.");
             }
             catch (Exception ex)
             {

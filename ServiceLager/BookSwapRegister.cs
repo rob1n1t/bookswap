@@ -74,7 +74,7 @@ namespace ServiceLager
 
             foreach (Affär aktuellAffär in Affärer)
             {
-                if (aktuellAffär.Köpare == student || aktuellAffär.Annons.Säljare == student)
+                if (aktuellAffär.Köpare == student)
                 {
                     studentensAffärer.Add(aktuellAffär);
                 }
