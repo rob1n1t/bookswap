@@ -7,7 +7,6 @@ namespace Models
     public enum AffärsStatus
     {
         Reserverad,
-        Genomförd,
-        Avbruten
+        Genomförd
     }
 }

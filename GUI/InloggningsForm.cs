@@ -6,14 +6,14 @@ namespace GUI
     public partial class InloggningsForm : Form
     {
         private BookSwapRegister register;
-        private AnvändarController controller;
+        private AnvändarController användarController;
 
         public InloggningsForm(BookSwapRegister register)
         {
             InitializeComponent();
 
             this.register = register;
-            controller = new AnvändarController(register);
+            användarController = new AnvändarController(register);
         }
 
         private void btnLoggaIn_Click(object sender, EventArgs e)
@@ -21,7 +21,7 @@ namespace GUI
             string epost = txtEpostadress.Text.Trim();
             string lösenord = txtLösenord.Text;
 
-            Användare? användare = controller.LoggaIn(epost, lösenord);
+            Användare? användare = användarController.LoggaIn(epost, lösenord);
 
             if (användare == null)
             {

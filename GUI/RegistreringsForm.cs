@@ -4,19 +4,19 @@ namespace GUI;
 
 public partial class RegistreringsForm : Form
 {
-    private AnvändarController Controller { get; }
+    private AnvändarController användarController { get; }
 
     public RegistreringsForm(BookSwapRegister register)
     {
         InitializeComponent();
-        Controller = new AnvändarController(register);
+        användarController = new AnvändarController(register);
     }
 
     private void btnRegistrera_Click(object sender, EventArgs e)
     {
         try
         {
-            Controller.RegistreraStudent(
+            användarController.RegistreraStudent(
                 txtFörnamn.Text,
                 txtEfternamn.Text,
                 txtEpost.Text,
