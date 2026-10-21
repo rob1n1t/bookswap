@@ -91,16 +91,19 @@ namespace GUI
                         case "Kursbok":
                             annonsController.PubliceraKursbok(
                             säljare, kurs, titel, pris, skick, txtISBN.Text.Trim(), txtFörfattare.Text.Trim(), (int)numUpplaga.Value);
+                            MessageBox.Show("Annonsen är publicerad.", "Publicering färdig", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
 
                         case "Kompendium":
                             annonsController.PubliceraKompendium(
                             säljare, kurs, titel, pris, skick, (int)numAntalSidor.Value, (int)numUtgivningsår.Value);
+                            MessageBox.Show("Annonsen är publicerad.", "Publicering färdig", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
 
                         case "Digitalresurs":
                             annonsController.PubliceraDigitalresurs(
                             säljare, kurs, titel, pris, skick, txtFilformat.Text.Trim(), txtLeveranssätt.Text.Trim());
+                            MessageBox.Show("Annonsen är publicerad.", "Publicering färdig", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
 
                         default:
@@ -122,6 +125,7 @@ namespace GUI
                                 txtISBN.Text.Trim(),
                                 txtFörfattare.Text.Trim(),
                                 (int)numUpplaga.Value);
+                                MessageBox.Show("Annonsen är nu redigerad.", "Redigering färdig", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
 
                         case "Kompendium":
@@ -133,6 +137,7 @@ namespace GUI
                                 skick,
                                 (int)numAntalSidor.Value,
                                 (int)numUtgivningsår.Value);
+                                MessageBox.Show("Annonsen är nu redigerad.", "Redigering färdig", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
 
                         case "Digitalresurs":
@@ -144,6 +149,7 @@ namespace GUI
                                 skick,
                                 txtFilformat.Text.Trim(),
                                 txtLeveranssätt.Text.Trim());
+                                MessageBox.Show("Annonsen är nu redigerad.", "Redigering färdig", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
 
                         default:
