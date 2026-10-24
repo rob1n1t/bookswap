@@ -198,6 +198,7 @@
             // numUtgivningsår
             // 
             numUtgivningsår.Location = new Point(139, 58);
+            numUtgivningsår.Maximum = new decimal(new int[] { 3000, 0, 0, 0 });
             numUtgivningsår.Name = "numUtgivningsår";
             numUtgivningsår.Size = new Size(188, 31);
             numUtgivningsår.TabIndex = 3;
@@ -214,6 +215,7 @@
             // numAntalSidor
             // 
             numAntalSidor.Location = new Point(139, 9);
+            numAntalSidor.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numAntalSidor.Name = "numAntalSidor";
             numAntalSidor.Size = new Size(186, 31);
             numAntalSidor.TabIndex = 1;

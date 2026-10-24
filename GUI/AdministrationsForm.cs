@@ -178,6 +178,7 @@ namespace GUI
 
             string detaljer =
                 "Annons-id: " + valdAnnons.AnnonsId + Environment.NewLine +
+                "Annonstyp: " + valdAnnons.GetType().Name + Environment.NewLine +
                 "Titel: " + valdAnnons.Titel + Environment.NewLine +
                 "Pris: " + valdAnnons.Pris + " kr" + Environment.NewLine +
                 "Skick: " + valdAnnons.Skick + Environment.NewLine +

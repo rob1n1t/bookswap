@@ -212,7 +212,7 @@
             // lblAntalAffärer
             // 
             lblAntalAffärer.AutoSize = true;
-            lblAntalAffärer.Location = new Point(145, 448);
+            lblAntalAffärer.Location = new Point(113, 448);
             lblAntalAffärer.Margin = new Padding(4, 0, 4, 0);
             lblAntalAffärer.Name = "lblAntalAffärer";
             lblAntalAffärer.Size = new Size(0, 25);
@@ -231,10 +231,10 @@
             // lstAffärer
             // 
             lstAffärer.FormattingEnabled = true;
-            lstAffärer.Location = new Point(145, 65);
+            lstAffärer.Location = new Point(113, 65);
             lstAffärer.Margin = new Padding(4);
             lstAffärer.Name = "lstAffärer";
-            lstAffärer.Size = new Size(706, 379);
+            lstAffärer.Size = new Size(826, 379);
             lstAffärer.TabIndex = 2;
             // 
             // AnnonsForm

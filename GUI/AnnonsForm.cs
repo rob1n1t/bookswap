@@ -94,6 +94,7 @@ namespace GUI
             }
 
             string detaljer =
+                "Annonstyp: " + valdAnnons.GetType().Name + Environment.NewLine +
                 "Titel: " + valdAnnons.Titel + Environment.NewLine +
                 "Kurs: " + valdAnnons.Kurs.Kurskod + " " + valdAnnons.Kurs.Namn + Environment.NewLine +
                 "Pris: " + valdAnnons.Pris + " kr" + Environment.NewLine +
